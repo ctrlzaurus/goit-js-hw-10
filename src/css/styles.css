@@ -18,3 +18,41 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+p,
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+
+.info__card {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+.name {
+  font-size: 20px;
+}
+
+.pictures {
+  width: 40px;
+}
+
+.country-list {
+  list-style: none;
+}
+
+.info__list {
+ display: flex;
+ gap: 20px;
+}
+
+.info__list:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.body__text:not(:last-child) {
+ margin-bottom: 10px;
+}
