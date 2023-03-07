@@ -4,13 +4,13 @@ import Notiflix from 'notiflix';
 
 import { fetchCountries } from './fetchCountries.js';
 
-// const DEBOUNCE_DELAY = 300;
+const DEBOUNCE_DELAY = 300;
 
 const searchBox = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
-const debounceSearch = debounce(() => {
+function debounceSearch() {
     const searchTerm = searchBox.value.trim();
     countryList.innerHTML = '';
     countryInfo.innerHTML = '';
@@ -19,12 +19,11 @@ const debounceSearch = debounce(() => {
   }
 
   fetchCountries(searchTerm).then((countries) => {
-      console.log(countries);
       countryEl(countries);
   });
-}, 300);
+};
 
-searchBox.addEventListener('input', debounceSearch);
+searchBox.addEventListener('input', debounce(debounceSearch, DEBOUNCE_DELAY));
 
 function countryEl(e) {
     // for (const iterator of e) {
@@ -53,7 +52,6 @@ function countryEl(e) {
         },
      );
     }
-    console.log(e);
 }
 
 function countryInfoCard(country) {
